@@ -2,28 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title> Chapter&nbsp;7.&nbsp;Basic System Configuration </title>
+    <title> 第七章&nbsp;基本系统配置 </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css">
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
-    <link rel="stylesheet" href="stylesheets/lfs-print.css"
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css"
       type="text/css" media="print">
   </head>
   <body class="lfs" id="lfs-7.7-systemd">
     <div class="navheader">
       <h4> Linux From Scratch - Version 7.7-systemd </h4>
-      <h3> Part&nbsp;III. 构建 LFS 系统 </h3>
+      <h3> 第三部分 构建 LFS 系统 </h3>
       <ul>
         <li class="prev"> <a accesskey="p"
-            href="../chapter06/revisedchroot.html" title="Cleaning Up">上
-            一页</a>
+            href="../chapter06/revisedchroot.html" title="清理">上一页</a>
           <p> 清理 </p>
         </li>
         <li class="next"> <a accesskey="n" href="introduction.html"
-            title="Introduction">下一页</a>
+            title="简介">下一页</a>
           <p> 简介 </p>
         </li>
         <li class="up"> <a accesskey="u" href="../part3.html"
-            title="Part&nbsp;III.&nbsp;Building the LFS System">返回</a> </li>
+            title="第三部分 构建 LFS 系统 ">返回</a> </li>
         <li class="home"> <a accesskey="h" href="../index.html"
             title="Linux From Scratch - Version 7.7-systemd">主页</a> </li>
       </ul>
@@ -32,37 +31,44 @@
       <h1 class="chapter"> <a id="chapter-bootscripts"
           name="chapter-bootscripts"></a>7.&nbsp; 基本系统配置 </h1>
       <div class="toc">
-        <h3> Table of Contents </h3>
+        <h3> 目录 </h3>
         <ul>
-          <li class="sect1"> <a href="introduction.html">简介</a> </li>
-          <li class="sect1"> <a href="network.html">通用网络配置</a> </li>
-          <li class="sect1"> <a href="udev.html">LFS 系统中的设备和模块控制</a> </li>
-          <li class="sect1"> <a href="symlinks.html">创建自定义符号连接设备</a> </li>
-          <li class="sect1"> <a href="clock.html">配置系统时间</a> </li>
-          <li class="sect1"> <a href="console.html">配置 Linux 控制台</a> </li>
-          <li class="sect1"> <a href="locale.html">系统区域设置</a> </li>
-          <li class="sect1"> <a href="inputrc.html">建立 /etc/inputrc 文件</a>
+          <li class="sect1 translated"> <a href="introduction.html">简介</a> </li>
+          <li class="sect1 translated"> <a href="network.html">通用网络配置</a> </li>
+          <li class="sect1 translated"> <a href="udev.html">LFS 系统中的设备和模块管理</a> </li>
+          <li class="sect1 translated"> <a href="symlinks.html">创建自定义符号链接到设备</a> </li>
+          <li class="sect1 translated"> <a href="clock.html">配置系统时间</a> </li>
+          <li class="sect1 translated"> <a href="console.html">配置 Linux 控制台</a> </li>
+          <li class="sect1 translated"> <a href="locale.html">系统区域设置</a> </li>
+          <li class="sect1 translated"> <a href="inputrc.html">创建 /etc/inputrc 文件</a>
           </li>
-          <li class="sect1"> <a href="etcshells.html">建立 /etc/shells 文件</a>
+          <li class="sect1 translated"> <a href="etcshells.html">创建 /etc/shells 文件</a>
           </li>
-          <li class="sect1"> <a href="systemd-custom.html">Systemd
+          <li class="sect1 translated"> <a href="systemd-custom.html">Systemd
               的用法与配置</a> </li>
         </ul>
       </div>
     </div>
     <div class="navfooter">
+        <div class="book">
+        <div class="titlepage">
+            <div class="author">
+                <span class="firstname">翻译团队：<a href="http://lctt.github.io/" target="_blank">LCTT</a></span>
+                <span class="surname">译者/校对：<a href="http://github.com/zpl1025" target="_blank">zpl1025</a>,<a href="http://github.com/wxy" target="_blank">wxy</a></span>
+            </div>
+        </div>
+        </div>
       <ul>
         <li class="prev"> <a accesskey="p"
-            href="../chapter06/revisedchroot.html" title="Cleaning Up">上
-            一页</a>
+            href="../chapter06/revisedchroot.html" title="清理">上一页</a>
           <p> 清理 </p>
         </li>
         <li class="next"> <a accesskey="n" href="introduction.html"
-            title="Introduction">下一页</a>
+            title="简介">下一页</a>
           <p> 简介 </p>
         </li>
         <li class="up"> <a accesskey="u" href="../part3.html"
-            title="Part&nbsp;III.&nbsp;Building the LFS System">返回</a> </li>
+            title="第三部分 构建 LFS 系统">返回</a> </li>
         <li class="home"> <a accesskey="h" href="../index.html"
             title="Linux From Scratch - Version 7.7-systemd">主页</a> </li>
       </ul>

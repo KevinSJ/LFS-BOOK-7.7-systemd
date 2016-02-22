@@ -5,11 +5,11 @@
     <meta http-equiv="Content-Type" content=
     "application/xhtml+xml; charset=utf-8" />
     <title>
-      6.7.&nbsp;Linux-3.19 API Headers
+      6.7.&nbsp;Linux-3.19 API 头文件
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
-    <link rel="stylesheet" href="stylesheets/lfs-print.css" type="text/css"
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
   <body class="lfs" id="lfs-7.7-systemd">
@@ -18,51 +18,50 @@
         Linux From Scratch - Version 7.7-systemd
       </h4>
       <h3>
-        Chapter&nbsp;6.&nbsp;Installing Basic System Software
+        第六章 安装基本的系统软件
       </h3>
       <ul>
         <li class="prev">
           <a accesskey="p" href="createfiles.html" title=
-          "Creating Essential Files and Symlinks">Prev</a>
+          "创建必需的文件和符号链接">上一页</a>
           <p>
-            Creating Essential Files and Symlinks
+            创建必需的文件和符号链接
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="man-pages.html" title=
-          "Man-pages-3.79">Next</a>
+          "Man-pages-3.79">下一页</a>
           <p>
             Man-pages-3.79
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter06.html" title=
-          "Chapter&nbsp;6.&nbsp;Installing Basic System Software">Up</a>
+          "第六章 安装基本的系统软件">返回</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.7-systemd">Home</a>
+          "Linux From Scratch - Version 7.7-systemd">主页</a>
         </li>
       </ul>
     </div>
     <div class="wrap" lang="en" xml:lang="en">
       <h1 class="sect1">
         <a id="ch-system-linux-headers" name=
-        "ch-system-linux-headers"></a>6.7. Linux-3.19 API Headers
+        "ch-system-linux-headers"></a>6.7. Linux-3.19 API 头文件
       </h1>
       <div class="package" lang="en" xml:lang="en">
         <p>
-          The Linux API Headers (in linux-3.19.tar.xz) expose the kernel's
-          API for use by Glibc.
+          Linux API 头文件（在 linux-3.19.tar.xz 里）会将内核 API 导出给 Glibc 使用。
         </p>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Approximate build time:</strong>
-              <span class="segbody">less than 0.1 SBU</span>
+              <strong class="segtitle">大概编译时间：</strong>
+              <span class="segbody">少于 0.1 SBU</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Required disk space:</strong>
+              <strong class="segtitle">所需磁盘空间：</strong>
               <span class="segbody">662 MB</span>
             </div>
           </div>
@@ -70,28 +69,19 @@
       </div>
       <div class="installation" lang="en" xml:lang="en">
         <h2 class="sect2">
-          6.7.1. Installation of Linux API Headers
+          6.7.1. Linux API 头文件的安装
         </h2>
         <p>
-          The Linux kernel needs to expose an Application Programming
-          Interface (API) for the system's C library (Glibc in LFS) to use.
-          This is done by way of sanitizing various C header files that are
-          shipped in the Linux kernel source tarball.
+          Linux 内核需要提供一个应用编程接口（API）供系统的 C 库（LFS 中的 Glibc）调用。这通过整理 Linux 内核源码包中的多个 C 头文件来完成。
         </p>
         <p>
-          Make sure there are no stale files and dependencies lying around
-          from previous activity:
+          确保在之前的动作里没有留下旧文件和依赖关系：
         </p>
         <pre class="userinput">
 <kbd class="command">make mrproper</kbd>
 </pre>
         <p>
-          Now extract the user-visible kernel headers from the source. They
-          are placed in an intermediate local directory and copied to the
-          needed location because the extraction process removes any existing
-          files in the target directory. There are also some hidden files
-          used by the kernel developers and not needed by LFS that are
-          removed from the intermediate directory.
+          现在要从源代码里解压出用户需要的内核头文件。因为解压过程会删除目标目录下所有文件，所以我们会先输出到一个本地中间目录后再拷贝到需要的地方。而且里面还有一些隐藏文件是给内核开发人员用的，而 LFS 不需要，所以会将它们从中间目录里删除。
         </p>
         <pre class="userinput">
 <kbd class="command">make INSTALL_HDR_PATH=dest headers_install
@@ -102,32 +92,32 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
       <div class="content" lang="en" xml:lang="en">
         <h2 class="sect2">
           <a id="contents-linux-headers" name=
-          "contents-linux-headers"></a>6.7.2. Contents of Linux API Headers
+          "contents-linux-headers"></a>6.7.2. Linux API 头文件内容
         </h2>
         <div class="segmentedlist">
           <div class="seglistitem">
             <div class="seg">
-              <strong class="segtitle">Installed headers:</strong>
+              <strong class="segtitle">安装的头文件：</strong>
               <span class="segbody">/usr/include/asm/*.h,
               /usr/include/asm-generic/*.h, /usr/include/drm/*.h,
               /usr/include/linux/*.h, /usr/include/mtd/*.h,
               /usr/include/rdma/*.h, /usr/include/scsi/*.h,
-              /usr/include/sound/*.h, /usr/include/video/*.h, and
+              /usr/include/sound/*.h, /usr/include/video/*.h, 和 
               /usr/include/xen/*.h</span>
             </div>
             <div class="seg">
-              <strong class="segtitle">Installed directories:</strong>
+              <strong class="segtitle">安装的目录：</strong>
               <span class="segbody">/usr/include/asm,
               /usr/include/asm-generic, /usr/include/drm, /usr/include/linux,
               /usr/include/mtd, /usr/include/rdma, /usr/include/scsi,
-              /usr/include/sound, /usr/include/video, and
+              /usr/include/sound, /usr/include/video, 和
               /usr/include/xen</span>
             </div>
           </div>
         </div>
         <div class="variablelist">
           <h3>
-            Short Descriptions
+            简要介绍
           </h3>
           <table border="0" class="variablelist">
             <colgroup>
@@ -144,7 +134,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API ASM Headers
+                    Linux API ASM 头文件
                   </p>
                 </td>
               </tr>
@@ -158,7 +148,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API ASM Generic Headers
+                    Linux API ASM 通用头文件
                   </p>
                 </td>
               </tr>
@@ -171,7 +161,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API DRM Headers
+                    Linux API DRM 头文件
                   </p>
                 </td>
               </tr>
@@ -185,7 +175,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API Linux Headers
+                    Linux API Linux 头文件
                   </p>
                 </td>
               </tr>
@@ -198,7 +188,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API MTD Headers
+                    Linux API MTD 头文件
                   </p>
                 </td>
               </tr>
@@ -212,7 +202,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API RDMA Headers
+                    Linux API RDMA 头文件
                   </p>
                 </td>
               </tr>
@@ -226,7 +216,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API SCSI Headers
+                    Linux API SCSI 头文件
                   </p>
                 </td>
               </tr>
@@ -240,7 +230,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API Sound Headers
+                    Linux API 音频头文件
                   </p>
                 </td>
               </tr>
@@ -254,7 +244,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API Video Headers
+                    Linux API 视频头文件
                   </p>
                 </td>
               </tr>
@@ -267,7 +257,7 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
                 </td>
                 <td>
                   <p>
-                    The Linux API Xen Headers
+                    Linux API Xen 头文件
                   </p>
                 </td>
               </tr>
@@ -277,28 +267,36 @@ find dest/include \( -name .install -o -name ..install.cmd \) -delete
       </div>
     </div>
     <div class="navfooter">
+      <div class="book">
+        <div class="titlepage">
+            <div class="author">
+                <span class="firstname">翻译团队：<a href="http://lctt.github.io/" target="_blank">LCTT</a></span>
+                <span class="surname">译者/校对：<a href="http://github.com/zpl1025" target="_blank">zpl1025</a>,<a href="http://github.com/wxy" target="_blank">wxy</a></span>
+            </div>
+        </div>
+      </div>
       <ul>
         <li class="prev">
           <a accesskey="p" href="createfiles.html" title=
-          "Creating Essential Files and Symlinks">Prev</a>
+          "创建必需的文件和符号链接">上一页</a>
           <p>
-            Creating Essential Files and Symlinks
+            创建必需的文件和符号链接
           </p>
         </li>
         <li class="next">
           <a accesskey="n" href="man-pages.html" title=
-          "Man-pages-3.79">Next</a>
+          "Man-pages-3.79">下一页</a>
           <p>
             Man-pages-3.79
           </p>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter06.html" title=
-          "Chapter&nbsp;6.&nbsp;Installing Basic System Software">Up</a>
+          "第六章 安装基本的系统软件">返回</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
-          "Linux From Scratch - Version 7.7-systemd">Home</a>
+          "Linux From Scratch - Version 7.7-systemd">主页</a>
         </li>
       </ul>
     </div>

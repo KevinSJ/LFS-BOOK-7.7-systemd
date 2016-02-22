@@ -2,27 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title> 7.5.&nbsp;Configuring the system clock </title>
+    <title> 7.5.&nbsp;配置系统时间 </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css">
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
-    <link rel="stylesheet" href="stylesheets/lfs-print.css"
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css"
       type="text/css" media="print">
   </head>
   <body class="lfs" id="lfs-7.7-systemd">
     <div class="navheader">
       <h4> Linux From Scratch - Version 7.7-systemd </h4>
-      <h3> 第 7 章. 基本系统配置 </h3>
+      <h3> 第七章 基本系统配置 </h3>
       <ul>
         <li class="prev"> <a accesskey="p" href="symlinks.html"
-            title="Creating Custom Symlinks to Devices">上一页</a>
-          <p> 创建自定义符号连接设备 </p>
+            title="创建自定义符号链接到设备">上一页</a>
+          <p> 创建自定义符号链接到设备 </p>
         </li>
         <li class="next"> <a accesskey="n" href="console.html"
-            title="Configuring the Linux Console">下一页</a>
-          <p> Configuring the Linux Console </p>
+            title="配置 Linux 控制台">下一页</a>
+          <p> 配置 Linux 控制台 </p>
         </li>
         <li class="up"> <a accesskey="u" href="chapter07.html"
-            title="Chapter&nbsp;7.&nbsp;Basic System Configuration">返回</a>
+            title="第七章 基本系统配置">返回</a>
         </li>
         <li class="home"> <a accesskey="h" href="../index.html"
             title="Linux From Scratch - Version 7.7-systemd">主页</a> </li>
@@ -33,9 +33,8 @@
           name="ch-scripts-clock"></a>7.5. 配置系统时间 </h1>
       <p> 本节将会讨论如何配置 <span class="command"><strong>systemd-timedated</strong></span>
         系统服务，包括配置系统时间和时区。</p>
-      <p> 如果你不确定是否将硬件时钟设置为 UTC，可以通过 <strong class="userinput"><code>hwclock
-
-            --localtime --show</code></strong>
+      <p> 如果你不确定是否将硬件时钟设置为 UTC，可以通过
+        <strong class="userinput"><code>hwclock --localtime --show</code></strong>
         来查看。这将根据硬件时钟显示当前的时间。如果实现和手表的时间相同，应该是设置为本地时间了；如果时间不一致，应该是设置为 UTC
         了。通过增减数小时，可以确定你所在时区。</p>
       <p> <span class="command"><strong>systemd-timedated</strong></span>
@@ -49,36 +48,35 @@
 LOCAL</code>
 EOF</kbd>
 </pre>
-      <p> If <code class="filename">/etc/adjtime</code> isn't present
-        at first boot, <span class="command"><strong>systemd-timedated</strong></span>
-        will assume that hardware clock is set to UTC and adjust the
-        file according to that. </p>
-      <p> You can also use the <span class="command"><strong>timedatectl</strong></span>
-        utility to tell <span class="command"><strong>systemd-timedated</strong></span>
-        if your hardware clock is set to UTC or local time: </p>
+      <p> 如果第一次启动时 <code class="filename">/etc/adjtime</code> 文件不存在，<span class="command"><strong>systemd-timedated</strong></span>
+        会认为硬件时钟设置成 UTC 并且以此调整该文件。
+      </p>
+      <p> 你也可以使用 <span class="command"><strong>timedatectl</strong></span> 程序来告诉
+        <span class="command"><strong>systemd-timedated</strong></span> 你的硬件时钟是 UTC 还是本地时间：
+      </p>
       <pre class="userinput"><kbd class="command">timedatectl set-local-rtc 1</kbd>
 </pre>
-      <p> <span class="command"><strong>timedatectl</strong></span> can
-        also be used to change system time and time zone. </p>
-      <p> To change your current system time, issue: </p>
+      <p> <span class="command"><strong>timedatectl</strong></span> 也可以用来更改系统时间和时区。
+      </p>
+      <p> 要更改当前系统时间，使用下面的命令：</p>
       <pre class="userinput"><kbd class="command">timedatectl set-time YYYY-MM-DD HH:MM:SS</kbd>
 </pre>
-      <p> Hardware clock will also be updated accordingly. </p>
-      <p> To change your current time zone, issue: </p>
+      <p> 硬件时钟也会相应更新。</p>
+      <p> 要更改当前时区，使用下面命令：</p>
       <pre class="userinput"><kbd class="command">timedatectl set-timezone TIMEZONE</kbd>
 </pre>
-      <p> You can get list of available time zones by running: </p>
+      <p> 你可以通过运行下面命令查看可用时区列表：</p>
       <pre class="userinput"><kbd class="command">timedatectl list-timezones</kbd>
 </pre>
       <div class="admon note"> <img alt="[Note]"
           src="../images/note.png">
-        <h3> Note </h3>
-        <p> Please note that <span class="command"><strong>timedatectl</strong></span>
-          command can be used only on a system booted with systemd. </p>
+        <h3> 注意 </h3>
+        <p> 请注意 <span class="command"><strong>timedatectl</strong></span> 命令只能用于通过 systemd 引导的系统。
+	</p>
       </div>
       <div class="sect2" xml:lang="en" lang="en">
         <h2 class="sect2"> 7.5.1. 网络时间同步</h2>
-        <p> 从版本号 213 的 systemd 开始，包括了一个名为<strong> </strong><span
+        <p> 从版本号 213 的 systemd 开始，包括了一个名为<span
             class="command"><strong>systemd-timesyncd</strong></span>
           的守护进程，将能够和远程的 NTP 服务器同步时间。 </p>
         <p> 此守护进程并不是为了取代已有的 NTP 服务，而是作为 SNTP
@@ -95,17 +93,25 @@ EOF</kbd>
       </div>
     </div>
     <div class="navfooter">
+        <div class="book">
+        <div class="titlepage">
+            <div class="author">
+                <span class="firstname">翻译团队：<a href="http://lctt.github.io/" target="_blank">LCTT</a></span>
+                <span class="surname">译者/校对：<a href="http://github.com/zpl1025" target="_blank">zpl1025</a>,<a href="http://github.com/wxy" target="_blank">wxy</a>,<a href="http://github.com/dongfengweixiao" target="_blank">dongfengweixiao</a>,<a href="http://github.com/ictlyh" target="_blank">ictlyh</a></span>
+            </div>
+        </div>
+        </div>
       <ul>
         <li class="prev"> <a accesskey="p" href="symlinks.html"
-            title="Creating Custom Symlinks to Devices">上一页</a>
-          <p> 创建自定义符号连接设备 </p>
+            title="创建自定义符号链接到设备">上一页</a>
+          <p> 创建自定义符号链接到设备 </p>
         </li>
         <li class="next"> <a accesskey="n" href="console.html"
-            title="Configuring the Linux Console">下一页</a>
-          <p> Configuring the Linux Console </p>
+            title="配置 Linux 控制台">下一页</a>
+          <p> 配置 Linux 控制台 </p>
         </li>
         <li class="up"> <a accesskey="u" href="chapter07.html"
-            title="Chapter&nbsp;7.&nbsp;Basic System Configuration">返回</a>
+            title="第七章 基本系统配置">返回</a>
         </li>
         <li class="home"> <a accesskey="h" href="../index.html"
             title="Linux From Scratch - Version 7.7-systemd">主页</a> </li>

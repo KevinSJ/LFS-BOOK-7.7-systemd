@@ -9,7 +9,7 @@
     </title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
     <meta name="generator" content="DocBook XSL Stylesheets V1.78.1" />
-    <link rel="stylesheet" href="stylesheets/lfs-print.css" type="text/css"
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type="text/css"
     media="print" />
   </head>
   <body class="lfs" id="lfs-7.7-systemd">
@@ -18,7 +18,7 @@
         Linux From Scratch - Version 7.7-systemd
       </h4>
       <h3>
-        第5章&nbsp;构建临时系统
+        第五章&nbsp;构建临时系统
       </h3>
       <ul>
         <li class="prev">
@@ -37,7 +37,7 @@
         </li>
         <li class="up">
           <a accesskey="u" href="chapter05.html" title=
-          "第5章&nbsp;构建临时系统">返回</a>
+          "第五章&nbsp;构建临时系统">返回</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
@@ -112,8 +112,8 @@ RANLIB=$LFS_TGT-ranlib         \
             </dt>
             <dd>
               <p>
-                这告诉配置脚本在编译 Binutils 的时候指定库搜索目录，结果是 <code class="filename">/tools/lib</code> 被
-                传递到链接器。这可以防止链接器搜索系统的库目录。
+                这告诉配置脚本在编译 Binutils 的时候指定库搜索目录，此处将 <code class="filename">/tools/lib</code>
+                传递到链接器。这可以防止链接器搜索宿主系统的库目录。
               </p>
             </dd>
             <dt>
@@ -143,7 +143,7 @@ RANLIB=$LFS_TGT-ranlib         \
         <p>
             现在，为下一章的<span class=
           "quote">&ldquo;<span class=
-          "quote">再调整</span>&rdquo;</span>阶段逐步链接器：
+          "quote">再调整</span>&rdquo;</span>阶段准备链接器：
         </p>
         <pre class="userinput">
 <kbd class="command">make -C ld clean
@@ -170,8 +170,8 @@ cp -v ld/ld-new /tools/bin</kbd>
             </dt>
             <dd>
               <p>
-                这个选项重新编译<code class=
-                "filename">ld</code>子目录中的所有文件。在命令行中指定 Makefile 的<code class="envar">LIB_PATH</code>
+                这个选项重新编译 <code class=
+                "filename">ld</code> 子目录中的所有文件。在命令行中指定 Makefile 的 <code class="envar">LIB_PATH</code>
                     变量可以使我们能够重写临时工具的默认值并指向正确的最终路径。该变量的值指定链接器的默认库搜索路径。
                     下一章中会用到这个准备。
               </p>
@@ -183,8 +183,8 @@ cp -v ld/ld-new /tools/bin</kbd>
         <p>
             该软件包的详细信息在<a class="xref" href=
           "../chapter06/binutils.html#contents-binutils" title=
-          "6.13.2.&nbsp;Binutils 的内容">6.13.2,
-          &ldquo;Binutils 的内容&rdquo;</a>
+          "6.13.2.&nbsp;Binutils  软件包内容">6.13.2,
+          &ldquo;Binutils  软件包内容&rdquo;</a>
         </p>
       </div>
     </div>
@@ -193,7 +193,7 @@ cp -v ld/ld-new /tools/bin</kbd>
         <div class="titlepage">
             <div class="author">
                 <span class="firstname">翻译团队：<a href="http://lctt.github.io/" target="_blank">LCTT</a></span>
-                <span class="surname">译者/校对：<a href="http://github.com/ictlyh" target="_blank">ictlyh</a>,</span>
+                <span class="surname">译者/校对：<a href="http://github.com/ictlyh" target="_blank">ictlyh</a>,<a href="http://github.com/dongfengweixiao" target="_blank">dongfengweixiao</a></span>
             </div>
         </div>
         </div>
@@ -214,7 +214,7 @@ cp -v ld/ld-new /tools/bin</kbd>
         </li>
         <li class="up">
           <a accesskey="u" href="chapter05.html" title=
-          "第5章&nbsp;构建临时系统">返回</a>
+          "第五章&nbsp;构建临时系统">返回</a>
         </li>
         <li class="home">
           <a accesskey="h" href="../index.html" title=
